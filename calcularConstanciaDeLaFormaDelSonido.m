@@ -1,3 +1,3 @@
-function [out_valorDeConstanciaDeLaFormaDelSonido] = calcularConstanciaDeLaFormaDelSonido(in_sonido)
-  a
-endfunction
+##function [out_valorDeConstanciaDeLaFormaDelSonido] = calcularConstanciaDeLaFormaDelSonido(in_onda, in_frecuenciaDeMuestreo)
+##  
+##endfunction

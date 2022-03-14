@@ -1,17 +1,16 @@
-function [] = graficarOndas(in_sonidoAIdentificar, in_visualizacion)
-  %El parámetro in_visualizacion determina si se quiere ver la onda más de cerca o de lejos.
-  [s1,fp1] = audioread(in_sonidoAIdentificar); %Importación y lectura de los archivos.
+function [] = graficarOndas(in_onda, in_frecuenciaDeMuestreo, in_tipoDeVisualizacion)
+  %El parámetro in_tipoDeVisualizacion determina si se quiere ver la onda más de cerca o de lejos.
   
-  t_length1 = length(s1); %Cálculo de la longitud de cada uno.
+  longitudDeLaOnda = length(in_onda); %Cálculo de la longitud de cada uno.
 
-  t1 = linspace(0, t_length1/fp1, length(s1));
+  unidadesDeTiempo = linspace(0, longitudDeLaOnda/in_frecuenciaDeMuestreo, longitudDeLaOnda);
+  unidadesDeAmplitud = in_onda(1:longitudDeLaOnda);
 
   %Gráfica del archivo.
-  plot(t1, s1(1:t_length1), 'r');
-  if in_visualizacion == 1
-    axis([1.55 1.57 -1 1]); Por si se quiere acotar el eje X.
+  plot(unidadesDeTiempo, unidadesDeAmplitud, 'r');
+  if in_tipoDeVisualizacion == 1
+    axis([1.55 1.57 -1 1]); %Por si se quiere acotar el eje X.
   endif
-  title(in_sonidoAIdentificar);
   xlabel("Tiempo (s)");
   ylabel("Intensdad");
   grid on;
