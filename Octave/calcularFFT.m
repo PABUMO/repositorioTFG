@@ -11,7 +11,7 @@ function [out_vectorResultante, out_espectroResultante] = calcularFFT(in_onda, i
   longitudAudio = length(in_onda); %Longitud del audio.
   duracionAudio =longitudAudio/in_frecuenciaDeMuestreo; %Tiempo total que dura el audio.
   periodoDeMuestreo=1/in_frecuenciaDeMuestreo; %Periodo de muestreo.
-  tiempo = [0:periodoDeMuestreo:(duracionAudio-periodoDeMuestreo)]; %Vector de tiempo.
+  %tiempo = [0:periodoDeMuestreo:(duracionAudio-periodoDeMuestreo)]; %Vector de tiempo.
 
   out_vectorResultante = vectorFrecuencias;
   out_espectroResultante = espectro;

@@ -1,6 +1,6 @@
 clear ; close all; clc;
 
-sonidoAIdentificar = "Sonidos/Pito de padre 1.ogg";
+sonidoAIdentificar = "../Sonidos/Pito de padre 1.ogg";
 [onda,frecuenciaDeMuestreo] = audioread(sonidoAIdentificar);
 
 ##graficarOndas(onda, frecuenciaDeMuestreo, 0);
@@ -9,7 +9,7 @@ sonidoAIdentificar = "Sonidos/Pito de padre 1.ogg";
 ##
 ##if(duracionDelSonido >= 1) %Evaluación de la duración del sonido.
 ##  disp("El sonido dura más de 1 segundo");
-##  [vectorFrecuencias, vectorEnergias] = calcularFFT(onda, frecuenciaDeMuestreo);
+  [vectorFrecuencias, vectorEnergias] = calcularFFT(onda, frecuenciaDeMuestreo);
 ##  vectorEnergias = transpose(vectorEnergias); %Convertirla en un vector fila.
 ##  %Se calcula el rango de frecuencias con las energías más altas.
 ##  [valorInicialDelRangoPredominante, valorFinalDelRangoPredominante] = calcularRangoPredominante(vectorFrecuencias, vectorEnergias);
@@ -30,5 +30,7 @@ sonidoAIdentificar = "Sonidos/Pito de padre 1.ogg";
 ##else
 ##  disp("El sonido no es una bocina");
 ##endif
-
-calcularConstanciaDeLaFormaDelSonido(onda, frecuenciaDeMuestreo);
+plot(vectorFrecuencias, vectorEnergias);
+axis([0 4000]);
+#calcularConstanciaDeLaFormaDelSonido(onda, frecuenciaDeMuestreo);
+#calcularDuracionDelSonido(onda, frecuenciaDeMuestreo)
