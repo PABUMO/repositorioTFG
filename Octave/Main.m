@@ -1,6 +1,6 @@
 clear ; close all; clc;
 
-sonidoAIdentificar = "../Sonidos/Pito de padre 1.ogg";
+sonidoAIdentificar = "../Sonidos/Pito de madre 1.ogg";
 [onda,frecuenciaDeMuestreo] = audioread(sonidoAIdentificar);
 
 ##graficarOndas(onda, frecuenciaDeMuestreo, 0);

@@ -1,13 +1,11 @@
-import numpy
-import pandas as pd
-import matplotlib.pyplot as plt
-import librosa as lr
-from glob import glob
 import soundfile
-
-onda, frecuenciaDeMuestreo = soundfile.read('../Sonidos/Pito de padre 1.ogg')
+import matplotlib.pyplot as plt
+from CalculosDeFFT import *
 
 def graficarOndas(in_onda, in_frecuenciaDeMuestreo):
+    
+    print("---------Inicial graficarOndas---------")
+    
     valoresDeTiempo = numpy.arange(0, len(in_onda))/frecuenciaDeMuestreo
     fig, ax = plt.subplots()
     ax.plot(valoresDeTiempo,in_onda)
@@ -15,6 +13,9 @@ def graficarOndas(in_onda, in_frecuenciaDeMuestreo):
     plt.show()
 
 def calcularDuracionDelSonido(in_onda, in_frecuenciaDeMuestreo):
+    
+    print("---------Inicial el calcularDuracionDelSonido---------")
+    
     longitudDeLaOnda = len(in_onda);
     in_onda = in_onda / max(abs(in_onda));
 
@@ -24,28 +25,10 @@ def calcularDuracionDelSonido(in_onda, in_frecuenciaDeMuestreo):
         if (abs(dato) >= 0.05): #Umbral de inicio de sonido.
             contadorDeCantidadDeDatos+=1
     return(contadorDeCantidadDeDatos/in_frecuenciaDeMuestreo);
+    
+    #return abs(transformada)/len(valoresDeTiempo)
 
-def calcularFFT(in_onda, in_frecuenciaDeMuestreo):
-    in_onda /= max(abs(in_onda))
-    
-    transformada = abs(numpy.fft.fft(in_onda))
-    longitudTransformada = len(transformada)
-    
-    f_plot = in_onda[0:int(longitudTransformada/2+1)]
-    x_mag_plot = 2 * transformada[0]/2
-    
-##    espectro = transformada[1:longitudTransformada/2]
-##    vectorFrecuencias = in_frecuenciaDeMuestreo[1:longitudTransformada/2]/longitudTransformada
-##
-##    longitudAudio = len(in_onda)
-##    duracionAudio =longitudAudio/in_frecuenciaDeMuestreo
-##    periodoDeMuestreo=1/in_frecuenciaDeMuestreo;
-    
-    fig, ax = plt.subplots()
-    ax.plot(f_plot,x_mag_plot)
-    ax.set(xlabel='Tiempo(s)', ylabel='Amplitud (dB)')
-    plt.show()
-    #return numpy.abs(transformada)/len(valoresDeTiempo)
-
+print("---------Inicial el Main---------")
+onda, frecuenciaDeMuestreo = soundfile.read('../Sonidos/Pito de madre 1.ogg')
 calcularFFT(onda, frecuenciaDeMuestreo)
 #duracionDelSonido = calcularDuracionDelSonido(onda, frecuenciaDeMuestreo)
