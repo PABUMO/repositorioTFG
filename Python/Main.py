@@ -30,5 +30,7 @@ def calcularDuracionDelSonido(in_onda, in_frecuenciaDeMuestreo):
 
 print("---------Inicial el Main---------")
 onda, frecuenciaDeMuestreo = soundfile.read('../Sonidos/Pito de madre 1.ogg')
-calcularFFT(onda, frecuenciaDeMuestreo)
+
 #duracionDelSonido = calcularDuracionDelSonido(onda, frecuenciaDeMuestreo)
+calcularRangoPredominante(onda, frecuenciaDeMuestreo)
+#porcentajeDeConstanciaDeLaFormaDelSonido = calcularConstanciaDeLaFormaDelSonido(onda, frecuenciaDeMuestreo)
