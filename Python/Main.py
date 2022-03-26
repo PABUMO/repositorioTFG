@@ -29,8 +29,9 @@ def calcularDuracionDelSonido(in_onda, in_frecuenciaDeMuestreo):
     #return abs(transformada)/len(valoresDeTiempo)
 
 print("---------Inicial el Main---------")
-onda, frecuenciaDeMuestreo = soundfile.read('../Sonidos/Pito de madre 1.ogg')
+onda, frecuenciaDeMuestreo = soundfile.read('../Sonidos/Pito de padre 1.ogg')
 
 #duracionDelSonido = calcularDuracionDelSonido(onda, frecuenciaDeMuestreo)
-calcularRangoPredominante(onda, frecuenciaDeMuestreo)
+listaResultante = calcularRangoPredominante(onda, frecuenciaDeMuestreo)
+print("El rango predominante empieza en " + str(listaResultante[0]) + " y termina en " + str(listaResultante[1]))
 #porcentajeDeConstanciaDeLaFormaDelSonido = calcularConstanciaDeLaFormaDelSonido(onda, frecuenciaDeMuestreo)
