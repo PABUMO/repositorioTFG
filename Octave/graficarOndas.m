@@ -4,10 +4,9 @@ function [] = graficarOndas(in_onda, in_frecuenciaDeMuestreo, in_tipoDeVisualiza
   longitudDeLaOnda = length(in_onda); %Cálculo de la longitud de cada uno.
 
   unidadesDeTiempo = linspace(0, longitudDeLaOnda/in_frecuenciaDeMuestreo, longitudDeLaOnda);
-  unidadesDeAmplitud = in_onda(1:longitudDeLaOnda);
-
+  
   %Gráfica del archivo.
-  plot(unidadesDeTiempo, unidadesDeAmplitud, 'r');
+  plot(unidadesDeTiempo, in_onda, 'r');
   if in_tipoDeVisualizacion == 1
     axis([1.55 1.57 -1 1]); %Por si se quiere acotar el eje X.
   endif

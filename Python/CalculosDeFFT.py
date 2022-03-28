@@ -29,7 +29,7 @@ def calcularPromedioDeEnergiasEnUnRango(in_vectorFrecuencias, in_vectorEnergias,
 
 def calcularFFT(in_onda, in_frecuenciaDeMuestreo):
     
-    print("---------Inicia calcularFFT---------")
+    print("//////// Inicia calcularFFT ////////")
 
     in_onda /= max(abs(in_onda))
 
@@ -68,7 +68,9 @@ def calcularRangoPredominante(in_onda, in_frecuenciaDeMuestreo):
     valorInicialDeComparacion = 0 #Con estos valores se comparará y en caso de ser menores, se reemplazarán.
     valorFinalDeComparacion = 50
     promedioDeEnergiasDeComparacion = 0
-      
+
+    print("//////// Inicia calcularPromedioDeEnergiasEnUnRango ////////")
+    
     while(valorFinalDeReferencia < 4000): #La gráfica la estoy definiendo hasta los 4000 Hz.
         promedioDeEnergiasDeReferencia = calcularPromedioDeEnergiasEnUnRango(vectorFrecuencias, vectorEnergias, valorInicialDeReferencia, valorFinalDeReferencia)
         if (promedioDeEnergiasDeReferencia > promedioDeEnergiasDeComparacion): #Si el promedio es mayor que el anterior se reemplaza.
@@ -79,11 +81,5 @@ def calcularRangoPredominante(in_onda, in_frecuenciaDeMuestreo):
         valorFinalDeReferencia += 50
 
     out_listaResultante = [valorInicialDeComparacion, valorFinalDeComparacion]
-
-    fig, ax = plt.subplots()
-    ax.set(xlim=(0, 4000), ylim=(0, 10000))
-    ax.plot(listaResultante[0],listaResultante[1])
-    ax.set(xlabel='Tiempo(s)', ylabel='Amplitud (dB)')
-    plt.show()
 
     return out_listaResultante
